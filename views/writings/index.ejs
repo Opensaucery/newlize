@@ -1,0 +1,10 @@
+<h2>Search Writings</h2>
+<form action="/writings" method="GET">
+    <label>Headline</label>
+    <input type="text" name="headline" value="<%= searchOptions.headline %> ">
+    <button type="submit">Search</button>
+</form>
+<br>
+<% writings.forEach(writing => { %> 
+    <div><%= writing.headline %></div>
+<% }) %> 
