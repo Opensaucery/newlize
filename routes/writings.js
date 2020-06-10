@@ -31,8 +31,8 @@ router.post('/', async (req, res) => {
     })
     try {
         const newWriting = await writing.save()
-        // res.redirect(`writings/${newWriting.id}`)
-        res.redirect(`writings`)
+        res.redirect('/writings')
+        
     } catch {
         res.render('writings/new', {
             writing: writing,
@@ -41,5 +41,55 @@ router.post('/', async (req, res) => {
     }   
 
 })
+
+// router.get('/:id', (req, res) => {
+//     res.send('Show Writing ' + req.params.id)
+// })
+
+router.get('/:id/edit', async (req, res) => {
+    try {
+        const writing = await Writing.findById(req.params.id)
+        res.render('writings/edit', { writing: writing })
+    
+    } catch {
+        res.redirect('/authors')
+    }
+})
+
+router.put('/:id', async (req, res) => {
+    let writing    
+    try {
+        writing = await Writing.findById(req.params.id)
+        writing.headline = req.body.headline
+        await writing.save()
+        res.redirect('/writings')
+        
+    } catch {
+        if (author == null) {
+            res.redirect('/')
+        } else {
+            res.render('writings/edit', {
+                writing: writing,
+                errorMessage: 'Error updating Writing' 
+            })
+        }
+    }
+})
+
+router.delete('/:id', async (req, res) => {
+    let writing    
+    try {
+        writing = await Writing.findById(req.params.id)
+        await writing.remove()
+        res.redirect('/writings')
+    } catch {
+        if (author == null) {
+            res.redirect('/')
+        } else {
+            res.redirect(`/writings/${writing.id}`)
+        }
+    }
+})
+
 
 module.exports = router

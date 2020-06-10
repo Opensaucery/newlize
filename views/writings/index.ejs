@@ -7,4 +7,7 @@
 <br>
 <% writings.forEach(writing => { %> 
     <div><%= writing.headline %></div>
+    <a href="/writings/<%= writing.id %>/edit">Edit</a>
+    <%- include('../partials/deleteForm',
+                { url: `/writings/${writing.id}` }) %> 
 <% }) %> 

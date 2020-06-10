@@ -1,0 +1,6 @@
+<h2>Edit Writing</h2>
+<form action="/writings/<%= writing.id %>?_method=PUT" method="POST">
+    <%- include('_form_fields') %>
+    <a href="/writings/">Cancel</a>
+    <button type="submit">Update</button>
+</form>
