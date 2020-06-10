@@ -1,2 +1,23 @@
-<label>Headline</label>
-<input type="text" name="headline" value="<%= writing.headline %>">
+<div>
+    <label>Headline</label>
+    <input type="text" name="headline" value="<%= writing.headline %>">
+</div>
+<div>
+    <label>Description</label>
+    <input type="text" name="description" value="<%= writing.description %>">
+</div>
+<div>
+    <label>Url</label>
+    <input type="text" name="writingURL" value="<%= writing.writingURL %>">
+</div>
+<div>
+    <label>Image</label>
+    <input type="file" name="linkImage">
+</div>
+<div>
+    <label>Type</label>
+    <select name="sourceType">
+        <option value="Theatre">Theatre</option>
+        <Option value="Other">Other</Option>
+    </select>
+</div>

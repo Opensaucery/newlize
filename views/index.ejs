@@ -1,1 +1,14 @@
-Middle
+<h2>Theatre</h2>
+
+<div>
+<% writings.forEach(writing => { %> 
+    
+    <img width="250" src="<%= writing.writingImagePath %>">
+    <div><%= writing.headline %></div>
+    <div><%= writing.description %></div>
+    <div><a href="http://<%= writing.writingURL %>"><%= writing.writingURL %></a></div>
+    
+<br>
+<hr>
+<% }) %> 
+</div>

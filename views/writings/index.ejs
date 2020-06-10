@@ -6,8 +6,15 @@
 </form>
 <br>
 <% writings.forEach(writing => { %> 
+    
+    <img width="250" src="<%= writing.writingImagePath %>">
     <div><%= writing.headline %></div>
+    <div><%= writing.description %></div>
+    <div><%= writing.writingURL %></div>
+    <div><%= writing.sourceType %></div>
     <a href="/writings/<%= writing.id %>/edit">Edit</a>
     <%- include('../partials/deleteForm',
-                { url: `/writings/${writing.id}` }) %> 
+                { url: `/writings/${writing.id}` }) %>
+<br>
+<hr>
 <% }) %> 
