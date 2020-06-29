@@ -1,17 +1,20 @@
 const express = require('express')
 const router = express.Router()
-const multer = require('multer')
-const path = require('path')
-const fs = require('fs')
+//const multer = require('multer')
+//const multipart = require('connect-multiparty')
+//const multipartMiddleware = multipart()
+//const path = require('path')
+//const fs = require('fs')
 const Writing = require('../models/writing')
-const uploadPath = path.join('public', Writing.writingImageBasePath)
-const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif']
-const upload = multer({
-    dest: uploadPath,
-    fileFilter: (req, file, callback) => {
-        callback(null, imageMimeTypes.includes(file.mimetype))
-    }
-})
+//const uploadPath = path.join('public', Writing.writingImageBasePath)
+//const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif']
+//const upload = multer({
+//    dest: uploadPath,
+//    fileFilter: (req, file, callback) => {
+//        callback(null, imageMimeTypes.includes(file.mimetype))
+//    }
+//})
+
 
 // All Writings Route
 router.get('/', async (req, res) => {
@@ -36,23 +39,23 @@ router.get('/new', (req, res) => {
 })
 
 // Create Writing Route
-router.post('/', upload.single('linkImage'), async (req, res) => {
-    const fileName = req.file != null ? req.file.filename : null
+router.post('/', async (req, res) => {
+    
     const writing = new Writing({
         headline: req.body.headline,
         description: req.body.description,
         writingURL: req.body.writingURL,
-        writingImageName: fileName,
+        writingImageName: req.body.writingImageName,
         sourceType: req.body.sourceType 
     })
     try {
-        const newWriting = await writing.save()
-        res.redirect('/writings')
+        await writing.save()
+        res.redirect('writings')
         
     } catch {
-        if (writing.writingImageName != null) {
-           removeLinkImage(writing.writingImageName)
-        }
+        // if (writing.writingImageName != null) {
+        //    removeLinkImage(writing.writingImageName)
+        // }
         res.render('writings/new', {
             writing: writing,
             errorMessage: 'Error creating Writing' 
@@ -61,25 +64,25 @@ router.post('/', upload.single('linkImage'), async (req, res) => {
 
 })
 
-function removeLinkImage(fileName) {
-    fs.unlink(path.join(uploadPath, fileName), err => {
-    if (err) console.error(err)
-    })
-}
+// function removeLinkImage(fileName) {
+//     fs.unlink(path.join(uploadPath, fileName), err => {
+//     if (err) console.error(err)
+//     })
+// }
 
 // router.get('/:id', (req, res) => {
 //     res.send('Show Writing ' + req.params.id)
 // })
 
-router.get('/:id/edit', async (req, res) => {
-    try {
-        const writing = await Writing.findById(req.params.id)
-        res.render('writings/edit', { writing: writing })
+// router.get('/:id/edit', async (req, res) => {
+//     try {
+//         const writing = await Writing.findById(req.params.id)
+//         res.render('writings/edit', { writing: writing })
     
-    } catch {
-        res.redirect('/authors')
-    }
-})
+//     } catch {
+//         res.redirect('/authors')
+//     }
+// })
 
 router.put('/:id', async (req, res) => {
     let writing    
@@ -92,7 +95,7 @@ router.put('/:id', async (req, res) => {
         await writing.save()
         res.redirect('/writings')
         
-    } catch {
+    } catch (error ) {
         if (author == null) {
             res.redirect('/')
         } else {
@@ -121,3 +124,7 @@ router.delete('/:id', async (req, res) => {
 
 
 module.exports = router
+// module.exports = function (app) {
+//     router.get('/writings/new', Writing.new);
+//     router.post('/writings', multipartMiddleware, Writing.create);
+// }
