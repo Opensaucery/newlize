@@ -10,17 +10,15 @@
     <label>Url</label>
     <input type="text" name="writingURL" value="<%= writing.writingURL %>">
 </div>
-<!-- <div>
-    <label>Image</label>
-    <input type="file" name="linkImage">
-</div> -->
 <div>
-<input name="writingImageName" type="text" placeholder="Image URL" id="url_text"/>
+<input name="writingImageName" type="text" id="url_text" value="<%= writing.writingImageName %>">
 </div>
+<input name="writingFormat" type="text" id="url_format" value="<%= writing.writingFormat %>">
 <button class="ui button" type="button" id="upload_widget_opener">Upload with Widget</button>
+
 <div>
     <label>Type</label>
-    <select name="sourceType">
+    <select name="sourceType" value="<%= writing.sourceType %>">
         <option value="Theatre">Theatre</option>
         <option value="Other">Other</option>
     </select>

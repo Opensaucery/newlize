@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 //const path = require('path')
 
 // // from cloudinary tutorial
-// const cloudinary = require('cloudinary')
+const cloudinary = require('cloudinary')
 // //const Model = require('./model')
 // cloudinary.config({
 //     cloud_name: 'dmupfimgd',
@@ -15,7 +15,7 @@ const mongoose = require('mongoose')
 const writingSchema = new mongoose.Schema({
     headline: {
         type: String,
-        required: true 
+        
     },
     description: {
         type: String,
@@ -26,6 +26,9 @@ const writingSchema = new mongoose.Schema({
     writingImageName: {
         type: String
     },
+    writingFormat: {
+        type: String
+    },
     sourceType: {
         type: String,
         
@@ -34,7 +37,27 @@ const writingSchema = new mongoose.Schema({
 
 
 
+
 module.exports = mongoose.model('Writing', writingSchema)
+
+// module.exports = {
+//     destroy: function (req, res) {
+//         var imageId = req.body.image_id;
+//         // The destroy method takes the image ID
+//         // which we need to remove
+//         cloudinary.v2.uploader.destroy(imageId)
+//                 // We also delete this
+//                 // image details from our database
+//                 // Model.findOneAndRemove({ image_id: imageId }, function(err) {
+//                 //     if (err) res.send(err);
+    
+//                 //     res.redirect('/');
+//                 // });
+//     //         });
+//     }
+// }
+
+
 // module.exports = {
 //     new: function (req, res) {
 //         res.render('writings/new');

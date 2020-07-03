@@ -46,16 +46,18 @@ router.post('/', async (req, res) => {
         description: req.body.description,
         writingURL: req.body.writingURL,
         writingImageName: req.body.writingImageName,
+        writingFormat: req.body.writingFormat,
         sourceType: req.body.sourceType 
     })
     try {
         await writing.save()
         res.redirect('writings')
         
-    } catch {
+    } catch (error) {
         // if (writing.writingImageName != null) {
         //    removeLinkImage(writing.writingImageName)
         // }
+        console.log(error)
         res.render('writings/new', {
             writing: writing,
             errorMessage: 'Error creating Writing' 
@@ -74,15 +76,15 @@ router.post('/', async (req, res) => {
 //     res.send('Show Writing ' + req.params.id)
 // })
 
-// router.get('/:id/edit', async (req, res) => {
-//     try {
-//         const writing = await Writing.findById(req.params.id)
-//         res.render('writings/edit', { writing: writing })
+router.get('/:id/edit', async (req, res) => {
+    try {
+        const writing = await Writing.findById(req.params.id)
+        res.render('writings/edit', { writing: writing })
     
-//     } catch {
-//         res.redirect('/authors')
-//     }
-// })
+    } catch {
+        res.redirect('/authors')
+    }
+})
 
 router.put('/:id', async (req, res) => {
     let writing    
@@ -91,12 +93,15 @@ router.put('/:id', async (req, res) => {
         writing.headline = req.body.headline
         writing.description = req.body.description
         writing.writingURL = req.body.writingURL
+        writing.writingImageName = req.body.writingImageName
+        writing.writingFormat = req.body.writingFormat
         writing.sourceType = req.body.sourceType
         await writing.save()
         res.redirect('/writings')
         
-    } catch (error ) {
-        if (author == null) {
+    } catch (error) {
+        console.log(error)
+        if (writing == null) {
             res.redirect('/')
         } else {
             res.render('writings/edit', {
@@ -107,6 +112,7 @@ router.put('/:id', async (req, res) => {
     }
 })
 
+// Delete writing for db
 router.delete('/:id', async (req, res) => {
     let writing    
     try {
@@ -114,7 +120,7 @@ router.delete('/:id', async (req, res) => {
         await writing.remove()
         res.redirect('/writings')
     } catch {
-        if (author == null) {
+        if (writing == null) {
             res.redirect('/')
         } else {
             res.redirect(`/writings/${writing.id}`)

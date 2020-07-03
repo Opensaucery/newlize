@@ -7,7 +7,7 @@
 <br>
 <% writings.forEach(writing => { %> 
     
-    <img width="250" src="<%= writing.writingImagePath %>">
+    <img width="250" src="https://res.cloudinary.com/dmupfimgd/image/upload/<%= writing.writingImageName %>.<%= writing.writingFormat %>">
     <div><%= writing.headline %></div>
     <div><%= writing.description %></div>
     <div><%= writing.writingURL %></div>
