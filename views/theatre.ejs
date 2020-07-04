@@ -1,3 +1,5 @@
+
+
 <div class="canvas">
     <div>
         <h1 class="logo"><a href="/index.html">ELIZA GEARTY</h1></a>
@@ -5,14 +7,18 @@
     <div class="menuBar">
         <div class="menuItem"><a href="/index.html">Home</a></div>
         <div class="menuItem"><a href="/doors.html">On the doors</a></div>
-        <div class="menuItem"><a href="/theatre">Theatre</a></div>
-        <div class="menuItem"><a class="active" href="/other">Other musings</a></div>
+        <div class="menuItem"><a class="active" href="/theatre">Theatre</a></div>
+        <div class="menuItem"><a href="/other">Other musings</a></div>
         </div>
     <div class="pageDivide"></div>
 
-<div>
+  
+<div class="writingBlocks">
 <% writings.forEach(writing => { %> 
-    
+<br>
+<br>
+<br>
+<br>
     <img width="250" src="https://res.cloudinary.com/dmupfimgd/image/upload/<%= writing.writingImageName %>">
     <div><%= writing.headline %></div>
     <div><%= writing.description %></div>

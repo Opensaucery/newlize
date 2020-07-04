@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     } catch {
       writings = []    
     }
-    res.render('index', { writings: writings })
+    res.render('theatre', { writings: writings })
    
 })
 
