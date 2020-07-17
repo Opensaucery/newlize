@@ -11,14 +11,22 @@
     <div class="pageDivide"></div>
 
 <div>
-<% writings.forEach(writing => { %> 
+    <% writings.forEach(writing => { %> 
+        <div class="wrapper">  
+                
+            <div class="imageWritings">
+                <img class="mainImgs" src="https://res.cloudinary.com/dmupfimgd/image/upload/<%= writing.writingImageName %>">
+            </div>    
+            <div class="writingsText">
+                <p>
+                    <div class="headline"><%= writing.headline %></div>
+                    <div class="description"><%= writing.description %></div>
+                    <div class="read"><a href="http://<%= writing.writingURL %>" target="_blank">READ</a></div>
+                </p>
+            </div>    
     
-    <img width="250" src="https://res.cloudinary.com/dmupfimgd/image/upload/<%= writing.writingImageName %>">
-    <div><%= writing.headline %></div>
-    <div><%= writing.description %></div>
-    <div><a href="http://<%= writing.writingURL %>" target="_blank">READ</a></div>
-    
-<br>
-<hr>
-<% }) %> 
+        </div>
+        <br>
+        <hr>
+    <% }) %> 
 </div>

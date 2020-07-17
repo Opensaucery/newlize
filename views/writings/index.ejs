@@ -9,11 +9,11 @@
 <% writings.forEach(writing => { %> 
     
     <img width="250" src="https://res.cloudinary.com/dmupfimgd/image/upload/<%= writing.writingImageName %>.<%= writing.writingFormat %>">
-    <div><%= writing.headline %></div>
-    <div><%= writing.description %></div>
-    <div><%= writing.writingURL %></div>
-    <div><%= writing.sourceType %></div>
-    <a href="/writings/<%= writing.id %>/edit">Edit</a>
+    <div class="headline"><%= writing.headline %></div>
+    <div class="description"><%= writing.description %></div>
+    <div class="description"><%= writing.writingURL %></div>
+    <div class="description"><%= writing.sourceType %></div>
+    <a class="description" href="/writings/<%= writing.id %>/edit">Edit</a>
     <%- include('../partials/deleteForm',
                 { url: `/writings/${writing.id}` }) %>
 <br>
