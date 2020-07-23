@@ -1,14 +1,9 @@
 const mongoose = require('mongoose')
 //const path = require('path')
 
-// // from cloudinary tutorial
+
 const cloudinary = require('cloudinary')
-// //const Model = require('./model')
-// cloudinary.config({
-//     cloud_name: 'dmupfimgd',
-//     api_key: '565397811148476',
-//     api_secret: 'PejFw41NXChTap4-tce3KZecnpw'
-// })
+
 
 
 

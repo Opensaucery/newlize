@@ -13,15 +13,20 @@ html {
 }
 
 body {
-background-image: url("wallpapertextured.jpg");
+/* background-image: url("wallpapertextured.jpg"); */
 background-blend-mode: screen;
 background-color: rgb(105, 105, 105);
 background-attachment: fixed;
 color: #3f3e3e;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+font-family: Georgia, 'Times New Roman', Times, serif;
 font-size: 0.75em;
 text-decoration: none;
 margin: 20px;
+}
+
+.login {
+    padding-bottom: 5px;
 }
 
 h1 {
