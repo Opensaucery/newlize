@@ -1,3 +1,9 @@
+:root {
+    --main-color: #2f4e39;
+    --main-color-gradient: #223829;
+    --highlight-color: rgb(236, 236, 160);
+}
+
 * {
     box-sizing: border-box;
    
@@ -13,16 +19,14 @@ html {
 }
 
 body {
-/* background-image: url("wallpapertextured.jpg"); */
+margin: 0;
 background-blend-mode: screen;
-/* background-color: rgb(105, 105, 105); */
 background-attachment: fixed;
 color: #3f3e3e;
-/* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
-font-family: Georgia, 'Times New Roman', Times, serif;
+font-family: alata;
 font-size: 0.75em;
 text-decoration: none;
-margin: 20px;
+
 }
 
 .login {
@@ -30,14 +34,14 @@ margin: 20px;
 }
 
 h1 {
-    font-size: 3em;
-    font-weight: bold;
-       
+    margin: 0;
+    font-size: 7.25em;
+          
 }
 
 a {
     text-decoration: none;
-    color: #5A5A5A;
+    
     font-weight: inherit;
 }
 
@@ -81,14 +85,8 @@ a:active {
         color: white;
 }
 
-.logo {
-    margin: -3px;
-    line-height: 1em;
-}
 
-.canvas {
-    padding: 80px 401px 0;
-}
+
 
 .description {
     font-size: 18px;
@@ -100,18 +98,21 @@ a:active {
 }
 
 .menuBar {
+    position: sticky;
+    top: 0;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     margin: 0;
-    padding: 50px 0px;
+    padding: 80px 401px 0;
 }
 
 .menuBar a {
     padding: 20px 0;
 }
 
-.menuItem > a {
-    font-size: 1.5em;  
+.menu-link {
+    font-size: 1em;  
+    color: var(--main-color);
     
 }
 
@@ -121,14 +122,35 @@ a:active {
 }
 
 .menuBar a:hover {
-    border-bottom: 1px solid #765AC5;
+    border-bottom: 1px solid var(--main-color);
     
+}
+
+.right-adjust {
+    text-align: right;
+}
+
+.vid-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+
+#myVideo {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .pageDivide {
     padding: 1em 0;
     border-bottom: 1px solid #765AC5;
 }
+
 
 .imageBorder {
     display: flex;
@@ -137,10 +159,13 @@ a:active {
 }
 
 .imageBk {
+    position: absolute;
+    padding-right: 26px;
+    padding-top: 26px;
     margin: 0;
-    margin-top: 20px;
-    max-width: 400px;
-    min-width: 150px;
+    right: 0px;
+    max-width: 425px;
+    min-width: 100px;
     
 }
  
@@ -173,17 +198,27 @@ a:active {
 .mainImgs {
     width: 100%;
     max-width: 100%;
+    box-shadow: 5px 5px 3px rgb(51, 51, 51);
+}
+
+.bk-img {
+    
+    width: 95%;
+    max-width: 95%;
+    box-shadow: 5px 5px 3px rgb(51, 51, 51);
+}
+
+.writingImgs {
+    width: 100%;
+    max-width: 100%;
     box-shadow: 5px 5px 3px rgb(173, 173, 173);
 }
 
 .read {
     font-size: 20px;
-    color: rgb(167, 61, 61);
     text-decoration-color: #ddd;
     letter-spacing: 3px;
-    /* padding: .75em; */
     margin-top: 1em;
-    
     display: inline-block;
     width: auto;
     height: auto;
@@ -193,8 +228,7 @@ a:active {
     -webkit-appearance: none;
     line-height: normal;
     padding: 13px 26px;
-
-    border-color:  #765AC5;
+    border-color:  var(--highlight-color);
     border-width: 2px;
     border-style: solid;
     background-color: transparent;
@@ -208,23 +242,59 @@ a:active {
     text-decoration-color: #ddd;
 }
 
+.main-wrapper {
+    position: relative;
+    background: linear-gradient(var(--main-color), var(--main-color-gradient));
+    padding: 26px;
+    display: grid;
+    grid-template-columns: 55% auto;
+}
+
 .wrapper {
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: grid;
     grid-template-columns: 35% auto;
 }
 
-p {
-    font-size: 1.5em;
+.landing {
+    width: 100%;
+    height: 1000px;
+    padding: 80px 401px 0;
 }
 
+.skinny {
+    background: linear-gradient(var(--main-color), var(--main-color-gradient));
+    width: 100%;
+    height: 1000px;
+}
+
+.doors {
+    color: white;
+    
+}
+
+p {
+    font-size: 2em;
+}
+
+p > a {
+    text-decoration-color: rgb(255, 255, 255);
+    
+}
+
+.publisher {
+    margin-block-start: 0;
+}
 .intro {
-    padding-left: 50px;
-    padding-right: 50px;
+    
     text-align: left;
 }
 
 .intro a {
-    color: #765AC5;
+    color: #ffffff;
+    padding: 1%;
+    back
 }
 
 .writingsText {
@@ -236,6 +306,13 @@ p {
 .writingsText a {
     color: black;
 }
+
+/* .landing {
+    display: inline-block;
+    width: 100vw;
+    height: 100%;
+
+} */
 
 @media screen and (max-width: 1900px){
     .menuBar a {
@@ -255,9 +332,7 @@ p {
     .canvas {
         padding: 40px 40px 0;
     }
-    .logo {
-        font-size: 3em;
-    }
+   
     .menuBar {
         padding: 15px 0;
     }

@@ -1,0 +1,17 @@
+Adobe After Effects v16.1.2 Windows 64 render log for project “Open.aep”
+
+Rendering started on 24/08/2020 at 06:24:25
+
+  24/08/2020 06:24:25: Starting composition “Assembly”.
+
+  Output To: C:\Users\Simon\Videos\Showreel\Assembly.avi    24/08/2020 06:24:29: Finished composition “Assembly”.
+
+
+  24/08/2020 06:24:29: Starting composition “Assembly”.
+
+  Output To: C:\Users\Simon\Videos\Showreel\Assembly_1.mov    24/08/2020 06:24:33: Finished composition “Assembly”.
+
+
+  Total Time Elapsed: 8 Seconds
+Log closed on 24/08/2020 at 06:24:33
+

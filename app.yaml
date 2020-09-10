@@ -1,6 +1,6 @@
 runtime: nodejs
 env: flex
 
-env_variables:
-  DATABASE_URL : 'mongodb+srv://eliza:YaanYmX8baXC04fr@testcluster1-jsvi3.gcp.mongodbter1-jsvi3.gcp.mongodb.net'
-# /test?retryWrites=true&w=majority"
+# env_variables:
+#   DATABASE_URL: 'mongodb+srv://eliza:YaanYmX8baXC04fr@testcluster1-jsvi3.gcp.mongodbter1-jsvi3.gcp.mongodb.net'
+# # /test?retryWrites=true&w=majority"
